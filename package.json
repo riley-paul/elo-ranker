@@ -9,17 +9,18 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/db": "^0.14.6",
     "@astrojs/react": "^4.1.6",
     "@astrojs/tailwind": "^5.1.5",
     "@radix-ui/themes": "^3.2.0",
-    "@types/react": "^19.0.8",
-    "@types/react-dom": "^19.0.3",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
     "astro": "^5.1.9",
     "jotai": "^2.11.1",
     "postcss-import": "^16.1.0",
     "radix-themes-tw": "^0.2.3",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^18",
+    "react-dom": "^18",
     "tailwindcss": "^3.4.17",
     "usehooks-ts": "^3.1.0"
   }
