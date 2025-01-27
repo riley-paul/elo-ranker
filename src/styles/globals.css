@@ -15,3 +15,13 @@
   --cursor-slider-thumb-active: grabbing;
   --cursor-switch: pointer;
 }
+
+* {
+  @apply border-gray-6;
+}
+
+@layer utilities {
+  .container-2 {
+    @apply mx-auto w-full max-w-screen-sm px-2;
+  }
+}

@@ -15,6 +15,7 @@
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "astro": "^5.1.9",
+    "jotai": "^2.11.1",
     "postcss-import": "^16.1.0",
     "radix-themes-tw": "^0.2.3",
     "react": "^19.0.0",
