@@ -10,7 +10,7 @@ const CategoryList: React.FC = () => {
   });
 
   return (
-    <Card>
+    <Card size="2">
       <Heading
         as="h2"
         size="2"
