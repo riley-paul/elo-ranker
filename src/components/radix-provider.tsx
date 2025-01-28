@@ -1,9 +1,15 @@
 import { Theme } from "@radix-ui/themes";
 import React from "react";
+import { useDarkMode } from "usehooks-ts";
 
 const RadixProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
+  const { isDarkMode } = useDarkMode();
   return (
-    <Theme appearance="dark" grayColor="mauve" accentColor="iris">
+    <Theme
+      appearance={isDarkMode ? "dark" : "light"}
+      grayColor="mauve"
+      accentColor="iris"
+    >
       {children}
     </Theme>
   );

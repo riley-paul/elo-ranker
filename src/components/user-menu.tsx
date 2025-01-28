@@ -3,12 +3,15 @@ import { useQuery } from "@tanstack/react-query";
 import { actions } from "astro:actions";
 import React from "react";
 import LoginButton from "./login-button";
+import { useDarkMode } from "usehooks-ts";
 
 const UserMenu: React.FC = () => {
   const { data } = useQuery({
     queryKey: ["me"],
     queryFn: () => actions.users.getMe.orThrow(),
   });
+
+  const { isDarkMode, toggle } = useDarkMode();
 
   if (!data) return <LoginButton />;
 
@@ -42,9 +45,27 @@ const UserMenu: React.FC = () => {
           </header>
         </div>
         <div className="grid gap-3">
-          <Button asChild>
+          <Button
+            color="gray"
+            variant="soft"
+            onClick={toggle}
+            className="relative"
+          >
+            {isDarkMode ? (
+              <>
+                <i className="fas fa-sun absolute left-4"></i>
+                Light mode
+              </>
+            ) : (
+              <>
+                <i className="fas fa-moon absolute left-4"></i>
+                Dark mode
+              </>
+            )}
+          </Button>
+          <Button asChild className="relative">
             <a href="/logout">
-              <i className="fas fa-arrow-right-from-bracket"></i>
+              <i className="fas fa-arrow-right-from-bracket absolute left-4"></i>
               Logout
             </a>
           </Button>
