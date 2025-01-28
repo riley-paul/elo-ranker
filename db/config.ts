@@ -8,10 +8,10 @@ const timestamps = {
 const User = defineTable({
   columns: {
     id: column.text({ primaryKey: true }),
-    googleId: column.text(),
-    name: column.text(),
     email: column.text(),
-    password: column.text(),
+    name: column.text(),
+    googleId: column.text(),
+    avatarUrl: column.text({ optional: true }),
     ...timestamps,
   },
 });
