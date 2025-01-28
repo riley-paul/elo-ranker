@@ -3,9 +3,9 @@ import {
   setSessionTokenCookie,
   deleteSessionTokenCookie,
 } from "@/lib/auth";
-import { defineMiddleware } from "astro:middleware";
+import { defineMiddleware, sequence } from "astro:middleware";
 
-export const onRequest = defineMiddleware(async (context, next) => {
+const userValidation = defineMiddleware(async (context, next) => {
   const token = context.cookies.get("session")?.value ?? null;
 
   if (token === null) {
@@ -26,3 +26,16 @@ export const onRequest = defineMiddleware(async (context, next) => {
   context.locals.user = user;
   return next();
 });
+
+const WHITE_LIST = ["/welcome", "/login", "/test"];
+const routeGuarding = defineMiddleware(async (context, next) => {
+  const isWhiteListed = WHITE_LIST.some((path) =>
+    context.url.pathname.startsWith(path)
+  );
+  if (!isWhiteListed && !context.locals.user) {
+    return context.redirect("/welcome");
+  }
+  return next();
+});
+
+export const onRequest = sequence(userValidation, routeGuarding);

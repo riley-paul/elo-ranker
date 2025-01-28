@@ -1,0 +1,13 @@
+---
+import RadixProvider from "@/components/radix-provider";
+import RootLayout from "@/layouts/root-layout.astro";
+import LoginButton from "@/components/login-button";
+---
+
+<RootLayout>
+  <RadixProvider>
+    <main class="w-screen h-screen flex items-center justify-center">
+      <LoginButton />
+    </main>
+  </RadixProvider>
+</RootLayout>
