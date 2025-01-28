@@ -27,7 +27,7 @@ const Session = defineTable({
 const Category = defineTable({
   columns: {
     id: column.text({ primaryKey: true }),
-    sessionId: column.text({ references: () => Session.columns.id }),
+    userId: column.text({ references: () => User.columns.id }),
     name: column.text(),
     ...timestamps,
   },

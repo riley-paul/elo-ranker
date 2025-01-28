@@ -8,7 +8,7 @@ import { useDarkMode } from "usehooks-ts";
 const UserMenu: React.FC = () => {
   const { data } = useQuery({
     queryKey: ["me"],
-    queryFn: () => actions.users.getMe.orThrow(),
+    queryFn: actions.users.getMe.orThrow,
   });
 
   const { isDarkMode, toggle } = useDarkMode();
