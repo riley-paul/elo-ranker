@@ -1,1 +1,3 @@
-export const server = {};
+import * as users from "./users";
+
+export const server = { users };
