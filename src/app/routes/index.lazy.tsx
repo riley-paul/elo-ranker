@@ -10,18 +10,9 @@ export const Route = createLazyFileRoute("/")({
 
 function Index() {
   return (
-    <div className="p-2">
-      <h3>Welcome Home!</h3>
-      <header className="sticky top-0 bg-gradient-to-b from-gray-2">
-        <div className="container2 flex h-14 items-center justify-between">
-          <Heading>Elo Ranker</Heading>
-          <UserMenu />
-        </div>
-      </header>
-      <main className="container2 py-4">
-        <CategoryAdder />
-        <CategoryList />
-      </main>
-    </div>
+    <main className="container2 py-4">
+      <CategoryAdder />
+      <CategoryList />
+    </main>
   );
 }
