@@ -22,6 +22,6 @@
 
 @layer utilities {
   .container2 {
-    @apply mx-auto w-full max-w-screen-sm px-2;
+    @apply mx-auto w-full max-w-screen-sm px-2 sm:px-4;
   }
 }
