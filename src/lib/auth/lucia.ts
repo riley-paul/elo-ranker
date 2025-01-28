@@ -5,9 +5,8 @@ import {
   encodeHexLowerCase,
 } from "@oslojs/encoding";
 import { sha256 } from "@oslojs/crypto/sha2";
-import type { SessionSelect, UserSelect } from "./types";
+import type { SessionSelect, UserSelect } from "../types";
 import invariant from "tiny-invariant";
-import type { APIContext } from "astro";
 
 export function generateSessionToken(): string {
   const bytes = new Uint8Array(20);
@@ -78,27 +77,3 @@ export async function invalidateSession(sessionId: string): Promise<void> {
 export type SessionValidationResult =
   | { session: SessionSelect; user: UserSelect }
   | { session: null; user: null };
-
-export function setSessionTokenCookie(
-  context: APIContext,
-  token: string,
-  expiresAt: number
-): void {
-  context.cookies.set("session", token, {
-    httpOnly: true,
-    sameSite: "lax",
-    secure: import.meta.env.PROD,
-    expires: new Date(expiresAt),
-    path: "/",
-  });
-}
-
-export function deleteSessionTokenCookie(context: APIContext): void {
-  context.cookies.set("session", "", {
-    httpOnly: true,
-    sameSite: "lax",
-    secure: import.meta.env.PROD,
-    maxAge: 0,
-    path: "/",
-  });
-}
