@@ -13,6 +13,7 @@
     "@astrojs/react": "^4.1.6",
     "@astrojs/tailwind": "^5.1.5",
     "@radix-ui/themes": "^3.2.0",
+    "@tanstack/react-query": "^5.65.0",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "astro": "^5.1.9",

@@ -1,18 +1,24 @@
 import React from "react";
 import RadixProvider from "./components/radix-provider";
-import { Heading } from "@radix-ui/themes";
+import { Button, Heading } from "@radix-ui/themes";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-type Props = {};
+const queryClient = new QueryClient();
 
-const App: React.FC<Props> = (props) => {
-  const {} = props;
-
+const App: React.FC = () => {
   return (
-    <RadixProvider>
-      <header className="container-2 py-7">
-        <Heading>Elo Ranker</Heading>
-      </header>
-    </RadixProvider>
+    <QueryClientProvider client={queryClient}>
+      <RadixProvider>
+        <header className="bg-gradient-to-b from-gray-2 sticky top-0">
+          <div className="container2 h-14 flex items-center">
+            <Heading>Elo Ranker</Heading>
+          </div>
+        </header>
+        <main className="container2 py-4">
+          <Button>Click Me</Button>
+        </main>
+      </RadixProvider>
+    </QueryClientProvider>
   );
 };
 
