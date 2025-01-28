@@ -1,7 +1,5 @@
 import CategoryAdder from "@/components/category-adder";
 import CategoryList from "@/components/category-list";
-import UserMenu from "@/components/user-menu";
-import { Heading } from "@radix-ui/themes";
 import { createLazyFileRoute } from "@tanstack/react-router";
 
 export const Route = createLazyFileRoute("/")({
