@@ -5,6 +5,7 @@ import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
 
 import db from "@astrojs/db";
+import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
 
 // https://astro.build/config
 export default defineConfig({
@@ -22,5 +23,13 @@ export default defineConfig({
         access: "secret",
       }),
     },
+  },
+  vite: {
+    plugins: [
+      TanStackRouterVite({
+        routesDirectory: "./src/app/routes",
+        generatedRouteTree: "./src/app/routeTree.gen.ts",
+      }),
+    ],
   },
 });
