@@ -13,7 +13,15 @@ const UserMenu: React.FC = () => {
 
   const { isDarkMode, toggle } = useDarkMode();
 
-  if (!data) return <LoginButton />;
+  if (!data)
+    return (
+      <Avatar
+        size="2"
+        radius="full"
+        src={undefined}
+        fallback={<i className="fas fa-user" />}
+      />
+    );
 
   return (
     <Popover.Root>

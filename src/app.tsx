@@ -4,6 +4,7 @@ import { Button, Heading } from "@radix-ui/themes";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import UserMenu from "./components/user-menu";
 import CategoryList from "./components/category-list";
+import CategoryAdder from "./components/category-adder";
 
 const queryClient = new QueryClient();
 
@@ -18,7 +19,7 @@ const App: React.FC = () => {
           </div>
         </header>
         <main className="container2 py-4">
-          <Button>Click Me</Button>
+          <CategoryAdder />
           <CategoryList />
         </main>
       </RadixProvider>

@@ -1,4 +1,4 @@
-import { Card } from "@radix-ui/themes";
+import { Card, Heading } from "@radix-ui/themes";
 import { useQuery } from "@tanstack/react-query";
 import { actions } from "astro:actions";
 import React from "react";
@@ -11,7 +11,15 @@ const CategoryList: React.FC = () => {
 
   return (
     <Card>
-      <h1>Categories</h1>
+      <Heading
+        as="h2"
+        size="2"
+        weight="bold"
+        className="uppercase"
+        color="gray"
+      >
+        Previous comparisons
+      </Heading>
       <ul>
         {data?.map((category) => <li key={category.id}>{category.name}</li>)}
       </ul>
